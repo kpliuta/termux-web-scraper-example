@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "termux-web-scraper-example-simple"
+version = "0.1.0"
+description = "A simple web scraping example using Selenium."
+authors = ["kpliuta <9212935+kpliuta@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+selenium = "^4.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
