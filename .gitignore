@@ -2,7 +2,7 @@
 .idea/
 *.iml
 
-*/poetry.lock
+poetry.lock
 
 # Checked out termux-web-scraper repo
-*/termux-web-scraper/
+termux-web-scraper/

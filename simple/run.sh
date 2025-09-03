@@ -12,12 +12,13 @@ fi
 # Get the absolute path to the scenario directory
 WORK_DIR=$(realpath "$(dirname "$0")")
 
-# Clone the repository
+# TODO: specify a version
+# Clone the termux-web-scraper repository
 git clone https://github.com/kpliuta/termux-web-scraper.git "$WORK_DIR/termux-web-scraper"
 
 # Execute the scraper script
 "$WORK_DIR/termux-web-scraper/scripts/run.sh" \
-    --scenarios-dir "$WORK_DIR/selenium" \
+    --scenarios-dir "$WORK_DIR/src" \
     --script simple.py \
     --upgrade \
     --output-dir /sdcard/termux-web-scraper:/mnt/scraper/out
