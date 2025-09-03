@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 import time
 from datetime import datetime
 
@@ -18,13 +19,14 @@ class DuckDuckGoScraper:
     A class to scrape DuckDuckGo for a given search term.
     """
 
-    def __init__(self, output_dir: str):
+    def __init__(self, output_dir: str, script_name: str):
         """
         Initializes the DuckDuckGoScraper.
 
         :param output_dir: The directory to save screenshots to.
         """
         self.output_dir = output_dir
+        self.script_name = script_name
         self.driver = self._init_driver()
 
     @staticmethod
@@ -106,10 +108,10 @@ class DuckDuckGoScraper:
 
     def _save_screenshot(self):
         """
-        Saves a screenshot of the current page.
+        Saves a screenshot of the current page with a timestamp and script name prefix.
         """
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        screenshot_name = f"{self.output_dir}/screenshot_{timestamp}.png"
+        screenshot_name = f"{self.output_dir}/{self.script_name}_screenshot_{timestamp}.png"
         self.driver.save_screenshot(screenshot_name)
         print(f"Screenshot saved as {screenshot_name}")
 
@@ -130,11 +132,15 @@ def main():
     """
     Main function to run the scraper.
     """
+    print("Starting the web scraping process...")
     scraper_output_dir = os.getenv('SCRAPER_OUTPUT_DIR')
     if not scraper_output_dir:
         raise ValueError("SCRAPER_OUTPUT_DIR environment variable not set.")
 
-    scraper = DuckDuckGoScraper(scraper_output_dir)
+    # Get the name of the current script without the .py suffix
+    script_name, _ = os.path.splitext(os.path.basename(sys.argv[0]))
+
+    scraper = DuckDuckGoScraper(scraper_output_dir, script_name)
     scraper.search("Python Selenium Example")
 
 
