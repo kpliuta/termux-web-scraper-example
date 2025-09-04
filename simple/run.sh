@@ -25,7 +25,7 @@ fi
 
 # Execute the scraper script.
 "$WORK_DIR/termux-web-scraper/scripts/run.sh" \
-    --scenarios-dir "$WORK_DIR" \
-    --script src/simple.py \
+    --work-dir "$WORK_DIR" \
+    --scenario-file src/simple.py \
     --upgrade \
     --output-dir /sdcard/termux-web-scraper:/mnt/scraper/out
