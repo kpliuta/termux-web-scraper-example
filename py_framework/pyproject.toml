@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "termux-web-scraper-example-py-framework"
+version = "0.1.0"
+# TODO fill description
+description = ""
+authors = ["kpliuta <9212935+kpliuta@users.noreply.github.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+termux-web-scraper = { git = "https://github.com/kpliuta/termux-web-scraper.git", rev = "0.1.0" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
